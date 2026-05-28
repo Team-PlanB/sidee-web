@@ -59,26 +59,27 @@ apps/<app>/
 
 ```bash
 pnpm install            # 워크스페이스 전체 설치
-pnpm dev                # 두 앱 동시 dev (turbo)
-pnpm --filter @sidee/user dev    # user 앱만
-pnpm --filter @sidee/admin dev   # admin 앱만
+pnpm dev                # 두 앱 동시 (user=3000, admin=3001)
+pnpm dev:user           # user 앱만 (port 3000)
+pnpm dev:admin          # admin 앱만 (port 3001)
 ```
 
 ## 명령어
 
 | 명령 | 설명 |
 | --- | --- |
-| `pnpm dev` | 전체 앱 dev 모드 (turbo) |
-| `pnpm build` | 전체 앱 production 빌드 |
-| `pnpm start` | 빌드 결과물로 서빙 |
+| `pnpm dev` | 두 앱 동시 dev (user=**3000**, admin=**3001**) |
+| `pnpm dev:user` | user 앱만 (port 3000) |
+| `pnpm dev:admin` | admin 앱만 (port 3001) |
+| `pnpm build` | 전체 production 빌드 |
+| `pnpm build:user` / `pnpm build:admin` | 단일 앱 빌드 |
+| `pnpm test` | 전체 Jest |
+| `pnpm test:user` / `pnpm test:admin` | 단일 앱 테스트 |
 | `pnpm lint` | 모든 앱/패키지 lint |
-| `pnpm test` | Jest 단위·hook·컴포넌트 테스트 |
+| `pnpm start` | 빌드 결과물로 서빙 |
 | `pnpm test:e2e` | Playwright E2E (도입 시) |
 
-특정 워크스페이스에만 실행하려면 `--filter <name>` 사용:
-```bash
-pnpm --filter @sidee/user test
-```
+더 세분화된 필터링은 `pnpm --filter <name> <command>` 직접 사용.
 
 ## 디자인 시스템
 
