@@ -1,10 +1,45 @@
 /**
- * admin/user 가 공유하는 디자인 토큰 (Tailwind v4 @theme).
+ * sidee 디자인 시스템 — 컬러 토큰.
+ *
+ * Tailwind v4 `@theme` 로 정의된 토큰은 `bg-*`, `text-*`, `border-*`, `ring-*`,
+ * `fill-*` 등의 유틸리티 클래스로 자동 생성된다.
+ * 시멘틱 토큰(primary / accent / surface / success / warning / error)을
+ * 우선 사용하고, 스케일(blue-50~900, gray-50~900)은 미세 톤 조정에 사용한다.
+ *
  * 각 앱의 globals.css 에서 `@import "tailwindcss";` 다음에 import 한다.
  */
 @theme {
-  --color-brand-50: #eef2ff;
-  --color-brand-500: #6366f1;
-  --color-brand-600: #4f46e5;
-  --color-brand-700: #4338ca;
+  /* ─── Blue scale ─────────────────────────────────────── */
+  --color-blue-50: #f5f8ff;
+  --color-blue-100: #ebf0ff;
+  --color-blue-200: #d4e0ff;
+  --color-blue-300: #b1c5ff;
+  --color-blue-400: #85a6ff;
+  --color-blue-500: #5a86ff;
+  --color-blue-600: #3368ff;
+  --color-blue-700: #3a4892;
+  --color-blue-800: #293670;
+  --color-blue-900: #1d2955;
+
+  /* ─── Gray scale ─────────────────────────────────────── */
+  --color-gray-50: #fafbfe;
+  --color-gray-100: #f3f5fa;
+  --color-gray-200: #e5e8f1;
+  --color-gray-300: #cfd4e3;
+  --color-gray-400: #a5acc2;
+  --color-gray-500: #737b96;
+  --color-gray-600: #505977;
+  --color-gray-700: #3f4866;
+  --color-gray-800: #2a2e49;
+  --color-gray-900: #0e1330;
+
+  /* ─── Status ─────────────────────────────────────────── */
+  --color-success: #00bf40;
+  --color-warning: #ff9200;
+  --color-error: #ff4242;
+
+  /* ─── Semantic aliases ──────────────────────────────── */
+  --color-primary: var(--color-blue-900);  /* Primary / Navy   */
+  --color-accent: var(--color-blue-600);   /* Accent / Action  */
+  --color-surface: var(--color-blue-100);  /* Surface / Tint   */
 }
