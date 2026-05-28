@@ -1,10 +1,102 @@
 /**
- * admin/user 가 공유하는 디자인 토큰 (Tailwind v4 @theme).
+ * sidee 디자인 시스템 — 컬러·타이포그래피 토큰.
+ *
+ * Tailwind v4 `@theme` 로 정의된 토큰은 `bg-*`, `text-*`, `border-*`, `ring-*`,
+ * `fill-*` 등의 유틸리티 클래스로 자동 생성된다.
+ * 시멘틱 토큰(primary / accent / surface / success / warning / error)을
+ * 우선 사용하고, 스케일(blue-50~900, gray-50~900)은 미세 톤 조정에 사용한다.
+ *
  * 각 앱의 globals.css 에서 `@import "tailwindcss";` 다음에 import 한다.
  */
 @theme {
-  --color-brand-50: #eef2ff;
-  --color-brand-500: #6366f1;
-  --color-brand-600: #4f46e5;
-  --color-brand-700: #4338ca;
+  /* ─── Blue scale ─────────────────────────────────────── */
+  --color-blue-50: #f5f8ff;
+  --color-blue-100: #ebf0ff;
+  --color-blue-200: #d4e0ff;
+  --color-blue-300: #b1c5ff;
+  --color-blue-400: #85a6ff;
+  --color-blue-500: #5a86ff;
+  --color-blue-600: #3368ff;
+  --color-blue-700: #3a4892;
+  --color-blue-800: #293670;
+  --color-blue-900: #1d2955;
+
+  /* ─── Gray scale ─────────────────────────────────────── */
+  --color-gray-50: #fafbfe;
+  --color-gray-100: #f3f5fa;
+  --color-gray-200: #e5e8f1;
+  --color-gray-300: #cfd4e3;
+  --color-gray-400: #a5acc2;
+  --color-gray-500: #737b96;
+  --color-gray-600: #505977;
+  --color-gray-700: #3f4866;
+  --color-gray-800: #2a2e49;
+  --color-gray-900: #0e1330;
+
+  /* ─── Status ─────────────────────────────────────────── */
+  --color-success: #00bf40;
+  --color-warning: #ff9200;
+  --color-error: #ff4242;
+
+  /* ─── Semantic aliases ──────────────────────────────── */
+  --color-primary: var(--color-blue-900);  /* Primary / Navy   */
+  --color-accent: var(--color-blue-600);   /* Accent / Action  */
+  --color-surface: var(--color-blue-100);  /* Surface / Tint   */
+
+  /* ─── Typography ─────────────────────────────────────
+   * 각 토큰은 font-size + line-height + letter-spacing 을 한 번에 적용.
+   * 굵기는 `font-bold` (700) / `font-medium` (500) / `font-normal` (400) 와 조합.
+   * 예: "Display1-Bold" = `text-display-1 font-bold`.
+   */
+  --text-display-1: 40px;
+  --text-display-1--line-height: 52px;
+  --text-display-1--letter-spacing: -0.0282em;
+
+  --text-title-1: 36px;
+  --text-title-1--line-height: 48px;
+  --text-title-1--letter-spacing: -0.027em;
+
+  --text-title-2: 28px;
+  --text-title-2--line-height: 38px;
+  --text-title-2--letter-spacing: -0.0236em;
+
+  --text-title-3: 24px;
+  --text-title-3--line-height: 32px;
+  --text-title-3--letter-spacing: -0.023em;
+
+  --text-heading-1: 22px;
+  --text-heading-1--line-height: 30px;
+  --text-heading-1--letter-spacing: -0.0194em;
+
+  --text-heading-2: 20px;
+  --text-heading-2--line-height: 28px;
+  --text-heading-2--letter-spacing: -0.012em;
+
+  --text-headline: 18px;
+  --text-headline--line-height: 26px;
+  --text-headline--letter-spacing: -0.002em;
+
+  --text-body-1: 16px;
+  --text-body-1--line-height: 24px;
+  --text-body-1--letter-spacing: 0.0057em;
+
+  --text-body-2: 15px;
+  --text-body-2--line-height: 22px;
+  --text-body-2--letter-spacing: 0.0096em;
+
+  --text-label-1: 14px;
+  --text-label-1--line-height: 20px;
+  --text-label-1--letter-spacing: 0.0145em;
+
+  --text-label-2: 13px;
+  --text-label-2--line-height: 18px;
+  --text-label-2--letter-spacing: 0.0194em;
+
+  --text-caption-1: 12px;
+  --text-caption-1--line-height: 16px;
+  --text-caption-1--letter-spacing: 0.0252em;
+
+  --text-caption-2: 11px;
+  --text-caption-2--line-height: 14px;
+  --text-caption-2--letter-spacing: 0.0311em;
 }
