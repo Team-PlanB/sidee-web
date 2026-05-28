@@ -1,0 +1,10 @@
+/**
+ * admin/user 가 공유하는 디자인 토큰 (Tailwind v4 @theme).
+ * 각 앱의 globals.css 에서 `@import "tailwindcss";` 다음에 import 한다.
+ */
+@theme {
+  --color-brand-50: #eef2ff;
+  --color-brand-500: #6366f1;
+  --color-brand-600: #4f46e5;
+  --color-brand-700: #4338ca;
+}
