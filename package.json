@@ -8,10 +8,16 @@
   },
   "scripts": {
     "dev": "turbo run dev",
+    "dev:user": "turbo run dev --filter=@sidee/user",
+    "dev:admin": "turbo run dev --filter=@sidee/admin",
     "build": "turbo run build",
+    "build:user": "turbo run build --filter=@sidee/user",
+    "build:admin": "turbo run build --filter=@sidee/admin",
     "start": "turbo run start",
     "lint": "turbo run lint",
     "test": "turbo run test",
+    "test:user": "turbo run test --filter=@sidee/user",
+    "test:admin": "turbo run test --filter=@sidee/admin",
     "test:e2e": "turbo run test:e2e"
   },
   "devDependencies": {
