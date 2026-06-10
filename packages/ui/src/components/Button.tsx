@@ -3,24 +3,22 @@
 import type { ButtonHTMLAttributes } from "react";
 import {
   buttonBase,
-  buttonColor,
+  resolveButtonColor,
   textButtonSize,
+  type ButtonColorProps,
   type ButtonHtmlType,
   type ButtonSize,
-  type ButtonStyleType,
-  type ButtonVariant,
 } from "./buttonStyles";
 
 export type ButtonProps = Omit<
   ButtonHTMLAttributes<HTMLButtonElement>,
   "type"
-> & {
-  /** 디자인 시스템 type (네이티브 type은 htmlType 사용) */
-  type?: ButtonStyleType;
-  variant?: ButtonVariant;
-  size?: ButtonSize;
-  htmlType?: ButtonHtmlType;
-};
+> &
+  ButtonColorProps & {
+    size?: ButtonSize;
+    /** 네이티브 button type (디자인 시스템 type과 구분) */
+    htmlType?: ButtonHtmlType;
+  };
 
 export function Button({
   type = "solid",
@@ -32,7 +30,7 @@ export function Button({
 }: ButtonProps) {
   const classes = [
     buttonBase,
-    buttonColor[type][variant],
+    resolveButtonColor(type, variant),
     textButtonSize[size],
     className,
   ]

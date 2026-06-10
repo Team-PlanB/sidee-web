@@ -7,4 +7,6 @@ export type {
   ButtonSize,
   ButtonStyleType,
   ButtonVariant,
+  OutlinedVariant,
+  SolidVariant,
 } from "./components/buttonStyles";
