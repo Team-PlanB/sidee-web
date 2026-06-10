@@ -14,6 +14,11 @@ describe("Button (텍스트 버튼)", () => {
     expect(button).toHaveClass("h-10", "px-4", "gap-1", "text-body-2");
   });
 
+  it("텍스트는 Bold 굵기를 사용한다", () => {
+    render(<Button>버튼</Button>);
+    expect(screen.getByRole("button")).toHaveClass("font-bold");
+  });
+
   it("size s: 높이 32px, 좌우 패딩 14px, gap 4px, label-2 타이포", () => {
     render(<Button size="s">버튼</Button>);
     expect(screen.getByRole("button")).toHaveClass(
@@ -32,6 +37,96 @@ describe("Button (텍스트 버튼)", () => {
       "gap-1.5",
       "text-body-1",
     );
+  });
+
+  it("solid / error: 배경 Red600, 텍스트 white", () => {
+    render(
+      <Button type="solid" variant="error">
+        삭제
+      </Button>,
+    );
+    expect(screen.getByRole("button")).toHaveClass("bg-error", "text-white");
+  });
+
+  describe("outlined: 배경 white + 1px 보더", () => {
+    it("primary: 보더/텍스트 Blue600", () => {
+      render(
+        <Button type="outlined" variant="primary">
+          버튼
+        </Button>,
+      );
+      expect(screen.getByRole("button")).toHaveClass(
+        "bg-white",
+        "inset-ring",
+        "inset-ring-blue-600",
+        "text-blue-600",
+      );
+    });
+
+    it("secondary: 보더 Gray200, 텍스트 Blue600", () => {
+      render(
+        <Button type="outlined" variant="secondary">
+          버튼
+        </Button>,
+      );
+      expect(screen.getByRole("button")).toHaveClass(
+        "bg-white",
+        "inset-ring",
+        "inset-ring-gray-200",
+        "text-blue-600",
+      );
+    });
+
+    it("assistive: 보더 Gray200, 텍스트 Gray800", () => {
+      render(
+        <Button type="outlined" variant="assistive">
+          버튼
+        </Button>,
+      );
+      expect(screen.getByRole("button")).toHaveClass(
+        "bg-white",
+        "inset-ring",
+        "inset-ring-gray-200",
+        "text-gray-800",
+      );
+    });
+
+    it("error: 보더/텍스트 Red600", () => {
+      render(
+        <Button type="outlined" variant="error">
+          버튼
+        </Button>,
+      );
+      expect(screen.getByRole("button")).toHaveClass(
+        "bg-white",
+        "inset-ring",
+        "inset-ring-error",
+        "text-error",
+      );
+    });
+
+    it("errorSecondary: 보더 Gray200, 텍스트 Red600", () => {
+      render(
+        <Button type="outlined" variant="errorSecondary">
+          버튼
+        </Button>,
+      );
+      expect(screen.getByRole("button")).toHaveClass(
+        "bg-white",
+        "inset-ring",
+        "inset-ring-gray-200",
+        "text-error",
+      );
+    });
+
+    it("outlined도 size 레이아웃은 solid와 동일하다", () => {
+      render(
+        <Button type="outlined" variant="primary" size="s">
+          버튼
+        </Button>,
+      );
+      expect(screen.getByRole("button")).toHaveClass("h-8", "px-[14px]");
+    });
   });
 
   it("네이티브 type 기본값은 button이다", () => {
