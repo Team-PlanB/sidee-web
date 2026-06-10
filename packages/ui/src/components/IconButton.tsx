@@ -3,35 +3,37 @@
 import type { ButtonHTMLAttributes } from "react";
 import {
   buttonBase,
+  iconButtonSize,
   resolveButtonColor,
-  textButtonSize,
   type ButtonColorProps,
   type ButtonHtmlType,
   type ButtonSize,
 } from "./buttonStyles";
 
-export type ButtonProps = Omit<
+export type IconButtonProps = Omit<
   ButtonHTMLAttributes<HTMLButtonElement>,
-  "type"
+  "type" | "aria-label"
 > &
   ButtonColorProps & {
     size?: ButtonSize;
     /** 네이티브 button type (디자인 시스템 type과 구분) */
     htmlType?: ButtonHtmlType;
+    /** 아이콘만 있는 버튼이므로 접근성 이름 필수 */
+    "aria-label": string;
   };
 
-export function Button({
+export function IconButton({
   type = "solid",
   variant = "primary",
   size = "m",
   htmlType = "button",
   className,
   ...props
-}: ButtonProps) {
+}: IconButtonProps) {
   const classes = [
     buttonBase,
     resolveButtonColor(type, variant),
-    textButtonSize[size],
+    iconButtonSize[size],
     className,
   ]
     .filter(Boolean)
