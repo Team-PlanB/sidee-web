@@ -10,3 +10,10 @@ export type {
   OutlinedVariant,
   SolidVariant,
 } from "./components/buttonStyles";
+export { Tag } from "./components/Tag";
+export type {
+  TagProps,
+  TagSize,
+  TagStyleType,
+  TagVariant,
+} from "./components/Tag";
