@@ -6,7 +6,8 @@ import { z } from "zod";
  * 새 변수는 여기에 추가하고, 코드에서는 `process.env` 대신 이 `env` 객체를 사용한다.
  */
 const clientEnvSchema = z.object({
-  NEXT_PUBLIC_API_BASE_URL: z.url().optional(),
+  // 백엔드 API baseURL. 미설정 시 staging 으로 폴백한다.
+  NEXT_PUBLIC_API_BASE_URL: z.url().default("https://staging-api.sidee.co.kr"),
 });
 
 const parsed = clientEnvSchema.safeParse({
