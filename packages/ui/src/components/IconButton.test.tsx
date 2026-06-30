@@ -97,4 +97,18 @@ describe("IconButton (아이콘 버튼)", () => {
     screen.getByRole("button").click();
     expect(onClick).toHaveBeenCalledTimes(1);
   });
+
+  it("asChild: 자식 요소(링크)로 렌더링하고 정사각형 치수를 입힌다", () => {
+    render(
+      <IconButton aria-label="홈" asChild>
+        <a href="/home">
+          <Icon />
+        </a>
+      </IconButton>,
+    );
+    const link = screen.getByRole("link", { name: "홈" });
+    expect(link).toHaveAttribute("href", "/home");
+    expect(link).toHaveClass("size-10", "bg-blue-600");
+    expect(screen.queryByRole("button")).not.toBeInTheDocument();
+  });
 });
