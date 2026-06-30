@@ -116,4 +116,15 @@ describe("Tag", () => {
     expect(tag).toHaveClass("ml-2");
     expect(tag).toHaveClass("bg-blue-100");
   });
+
+  it("asChild: 자식 요소(링크)로 렌더링하고 스타일을 입힌다", () => {
+    render(
+      <Tag asChild>
+        <a href="/tag/react">React</a>
+      </Tag>,
+    );
+    const link = screen.getByRole("link", { name: "React" });
+    expect(link).toHaveAttribute("href", "/tag/react");
+    expect(link).toHaveClass("bg-blue-100", "text-blue-600", "rounded-full");
+  });
 });
