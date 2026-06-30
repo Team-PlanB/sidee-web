@@ -38,3 +38,5 @@ export { ProgressSteps } from "./components/ProgressSteps";
 export type { ProgressStepsProps } from "./components/ProgressSteps";
 export { FilterChip } from "./components/FilterChip";
 export type { FilterChipProps, FilterChipSize } from "./components/FilterChip";
+export { ScrollBar } from "./components/ScrollBar";
+export type { ScrollBarProps, ScrollBarSize } from "./components/ScrollBar";
