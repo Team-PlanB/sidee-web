@@ -34,3 +34,5 @@ export { Radio } from "./components/Radio";
 export type { RadioProps, RadioSize } from "./components/Radio";
 export { Checkbox } from "./components/Checkbox";
 export type { CheckboxProps, CheckboxSize } from "./components/Checkbox";
+export { ProgressSteps } from "./components/ProgressSteps";
+export type { ProgressStepsProps } from "./components/ProgressSteps";
