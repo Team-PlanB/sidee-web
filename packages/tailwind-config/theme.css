@@ -3,12 +3,18 @@
  *
  * Tailwind v4 `@theme` 로 정의된 토큰은 `bg-*`, `text-*`, `border-*`, `ring-*`,
  * `fill-*` 등의 유틸리티 클래스로 자동 생성된다.
- * 시멘틱 토큰(primary / accent / surface / success / warning / error)을
- * 우선 사용하고, 스케일(blue-50~900, gray-50~900)은 미세 톤 조정에 사용한다.
+ *
+ * 여기에는 원천 값(스케일 blue/gray, status, white/black, typography)만 둔다.
+ * 시멘틱 레이어(primary / secondary / muted / accent / destructive / border …)는
+ * shadcn 토큰 규약을 따르며, 각 앱의 globals.css 에서 이 스케일 값에 매핑한다.
  *
  * 각 앱의 globals.css 에서 `@import "tailwindcss";` 다음에 import 한다.
  */
 @theme {
+  /* ─── Base ───────────────────────────────────────────── */
+  --color-white: #ffffff;
+  --color-black: #000000;
+
   /* ─── Blue scale ─────────────────────────────────────── */
   --color-blue-50: #f5f8ff;
   --color-blue-100: #ebf0ff;
@@ -38,9 +44,7 @@
   --color-warning: #ff9200;
   --color-error: #ff4242;
 
-  /* ─── Semantic aliases ──────────────────────────────── */
-  --color-primary: var(--color-blue-900);  /* Primary / Navy   */
-  --color-accent: var(--color-blue-600);   /* Accent / Action  */
+  /* ─── Surface (sidee 전용 tint, shadcn 대응 토큰 없음) ─── */
   --color-surface: var(--color-blue-100);  /* Surface / Tint   */
 
   /* ─── Typography ─────────────────────────────────────
