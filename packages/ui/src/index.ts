@@ -32,3 +32,5 @@ export type {
 } from "./components/FilterSelect";
 export { Radio } from "./components/Radio";
 export type { RadioProps, RadioSize } from "./components/Radio";
+export { Checkbox } from "./components/Checkbox";
+export type { CheckboxProps, CheckboxSize } from "./components/Checkbox";
