@@ -36,3 +36,5 @@ export { Checkbox } from "./components/Checkbox";
 export type { CheckboxProps, CheckboxSize } from "./components/Checkbox";
 export { ProgressSteps } from "./components/ProgressSteps";
 export type { ProgressStepsProps } from "./components/ProgressSteps";
+export { FilterChip } from "./components/FilterChip";
+export type { FilterChipProps, FilterChipSize } from "./components/FilterChip";
