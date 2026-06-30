@@ -19,3 +19,8 @@ export type {
 } from "./components/Tag";
 export { Tooltip } from "./components/Tooltip";
 export type { TooltipProps } from "./components/Tooltip";
+export { SearchField } from "./components/SearchField";
+export type {
+  SearchFieldProps,
+  SearchFieldSize,
+} from "./components/SearchField";
