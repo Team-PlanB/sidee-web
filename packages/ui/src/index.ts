@@ -30,3 +30,5 @@ export type {
   FilterSelectSize,
   FilterSelectState,
 } from "./components/FilterSelect";
+export { Radio } from "./components/Radio";
+export type { RadioProps, RadioSize } from "./components/Radio";
