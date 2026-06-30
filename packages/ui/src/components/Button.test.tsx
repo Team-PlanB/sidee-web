@@ -157,4 +157,21 @@ describe("Button (텍스트 버튼)", () => {
     render(<Button disabled>버튼</Button>);
     expect(screen.getByRole("button")).toBeDisabled();
   });
+
+  it("asChild: 자식 요소(링크)로 렌더링하고 스타일을 입힌다", () => {
+    render(
+      <Button asChild>
+        <a href="/start">시작</a>
+      </Button>,
+    );
+    const link = screen.getByRole("link", { name: "시작" });
+    expect(link).toHaveAttribute("href", "/start");
+    expect(link).toHaveClass("bg-blue-600", "rounded-full");
+    expect(screen.queryByRole("button")).not.toBeInTheDocument();
+  });
+
+  it("asChild가 아니면 data-slot=button을 노출한다", () => {
+    render(<Button>버튼</Button>);
+    expect(screen.getByRole("button")).toHaveAttribute("data-slot", "button");
+  });
 });
