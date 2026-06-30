@@ -44,3 +44,5 @@ export { TextField } from "./components/TextField";
 export type { TextFieldProps } from "./components/TextField";
 export { Textarea } from "./components/Textarea";
 export type { TextareaProps } from "./components/Textarea";
+export { Select } from "./components/Select";
+export type { SelectProps, SelectItem } from "./components/Select";
