@@ -17,3 +17,5 @@ export type {
   TagStyleType,
   TagVariant,
 } from "./components/Tag";
+export { Tooltip } from "./components/Tooltip";
+export type { TooltipProps } from "./components/Tooltip";
