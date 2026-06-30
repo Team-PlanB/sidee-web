@@ -42,3 +42,5 @@ export { ScrollBar } from "./components/ScrollBar";
 export type { ScrollBarProps, ScrollBarSize } from "./components/ScrollBar";
 export { TextField } from "./components/TextField";
 export type { TextFieldProps } from "./components/TextField";
+export { Textarea } from "./components/Textarea";
+export type { TextareaProps } from "./components/Textarea";
