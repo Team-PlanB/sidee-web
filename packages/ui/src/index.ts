@@ -24,3 +24,9 @@ export type {
   SearchFieldProps,
   SearchFieldSize,
 } from "./components/SearchField";
+export { FilterSelect } from "./components/FilterSelect";
+export type {
+  FilterSelectProps,
+  FilterSelectSize,
+  FilterSelectState,
+} from "./components/FilterSelect";
