@@ -1,0 +1,71 @@
+import type { Project } from "./types";
+
+// 브랜드 컬러 (Figma 기술스택 원 색상)
+const TECH = {
+  swift: { name: "Swift", color: "#F05138" },
+  python: { name: "Python", color: "#3776AB" },
+  javascript: { name: "JavaScript", color: "#F7DF1E" },
+  mongodb: { name: "MongoDB", color: "#001E2A" },
+  react: { name: "React", color: "#087EA4" },
+  nodejs: { name: "Node.js", color: "#5FA04E" },
+} as const;
+
+/** 퍼블리싱용 목업 — 백엔드 연동 시 교체. */
+export const mockProjects: Project[] = [
+  {
+    id: "1",
+    title: "프로젝트 이름은 엄청 길 수도 있으니까 리스트 형은 넉넉하게 40자까지 두 줄로",
+    positions: ["기획", "디자인", "프론트", "백엔드"],
+    techStack: [TECH.swift, TECH.python, TECH.javascript, TECH.mongodb],
+    postedAt: "2026.06.30 (금)",
+    postedAgo: "1시간 전",
+    deadline: "2026.08.30 (금)",
+    dday: "마감 61일 남음",
+    author: { nickname: "사용자닉네임" },
+    liked: false,
+    viewCount: 866,
+    likeCount: 44,
+  },
+  {
+    id: "2",
+    title: "사이드 프로젝트 팀원 모집합니다 (디자이너 · 프론트엔드)",
+    positions: ["디자인", "프론트"],
+    techStack: [TECH.react, TECH.nodejs],
+    postedAt: "2026.06.29 (목)",
+    postedAgo: "1일 전",
+    deadline: "2026.07.31 (금)",
+    dday: "마감 31일 남음",
+    author: { nickname: "김사이디" },
+    liked: true,
+    viewCount: 342,
+    likeCount: 12,
+  },
+  {
+    id: "3",
+    title: "AI 기반 매칭 서비스 공동 창업자를 찾습니다",
+    positions: ["기획", "백엔드", "AI"],
+    techStack: [TECH.python, TECH.mongodb],
+    postedAt: "2026.06.28 (수)",
+    postedAgo: "2일 전",
+    deadline: "2026.09.15 (화)",
+    dday: "마감 77일 남음",
+    author: { nickname: "스타트업러버" },
+    liked: false,
+    viewCount: 87,
+    likeCount: 9,
+  },
+  {
+    id: "4",
+    title: "주말 해커톤 함께 나갈 팀원 구해요",
+    positions: ["프론트", "백엔드"],
+    techStack: [TECH.javascript, TECH.react, TECH.nodejs],
+    postedAt: "2026.06.27 (화)",
+    postedAgo: "3일 전",
+    deadline: "2026.07.20 (월)",
+    dday: "마감 20일 남음",
+    author: { nickname: "해커톤킹" },
+    liked: false,
+    viewCount: 51,
+    likeCount: 5,
+  },
+];
