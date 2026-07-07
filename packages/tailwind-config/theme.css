@@ -44,8 +44,9 @@
   --color-warning: #ff9200;
   --color-error: #ff4242;
 
-  /* ─── Surface (sidee 전용 tint, shadcn 대응 토큰 없음) ─── */
-  --color-surface: var(--color-blue-100);  /* Surface / Tint   */
+  /* ─── Semantic (Figma Semantic 팔레트, shadcn 대응 토큰 없음) ─── */
+  --color-surface: var(--color-blue-100);  /* Surface / Tint             */
+  --color-primary-normal: #0066ff;         /* Semantic / Primary / Normal */
 
   /* ─── Typography ─────────────────────────────────────
    * 각 토큰은 font-size + line-height + letter-spacing 을 한 번에 적용.
