@@ -46,3 +46,14 @@ export { Textarea } from "./components/Textarea";
 export type { TextareaProps } from "./components/Textarea";
 export { Select } from "./components/Select";
 export type { SelectProps, SelectItem } from "./components/Select";
+export { PaginationItem } from "./components/PaginationItem";
+export type { PaginationItemProps } from "./components/PaginationItem";
+export { PaginationArrow } from "./components/PaginationArrow";
+export type {
+  PaginationArrowProps,
+  PaginationArrowDirection,
+} from "./components/PaginationArrow";
+export { PaginationEllipsis } from "./components/PaginationEllipsis";
+export type { PaginationEllipsisProps } from "./components/PaginationEllipsis";
+export { Pagination } from "./components/Pagination";
+export type { PaginationProps, PaginationType } from "./components/Pagination";
