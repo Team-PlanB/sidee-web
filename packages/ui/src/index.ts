@@ -57,3 +57,10 @@ export { PaginationEllipsis } from "./components/PaginationEllipsis";
 export type { PaginationEllipsisProps } from "./components/PaginationEllipsis";
 export { Pagination } from "./components/Pagination";
 export type { PaginationProps, PaginationType } from "./components/Pagination";
+export { Logo } from "./components/Logo";
+export { AppLogo } from "./components/AppLogo";
+export { SegmentedControl } from "./components/SegmentedControl";
+export type {
+  SegmentedControlProps,
+  SegmentedControlItem,
+} from "./components/SegmentedControl";
