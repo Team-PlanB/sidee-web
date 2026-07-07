@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { QueryProvider } from "@/shared/api";
 import { AuthProvider } from "@/features/auth";
+import { SiteHeader } from "@/widgets/header";
 import "./globals.css";
 
 const wantedSans = localFont({
@@ -25,7 +26,10 @@ export default function RootLayout({
     <html lang="ko" className={`${wantedSans.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
         <QueryProvider>
-          <AuthProvider>{children}</AuthProvider>
+          <AuthProvider>
+            <SiteHeader />
+            {children}
+          </AuthProvider>
         </QueryProvider>
       </body>
     </html>
