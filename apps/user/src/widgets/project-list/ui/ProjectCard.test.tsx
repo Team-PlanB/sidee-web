@@ -49,4 +49,11 @@ describe("ProjectCard", () => {
     screen.getByRole("button", { name: /관심/ }).click();
     expect(onToggleLike).toHaveBeenCalledWith("1");
   });
+
+  it("카드는 프로젝트 상세로 이동하는 링크를 가진다", () => {
+    render(<ProjectCard project={project} />);
+    expect(
+      screen.getByRole("link", { name: /상세 보기/ }),
+    ).toHaveAttribute("href", "/projects/1");
+  });
 });
