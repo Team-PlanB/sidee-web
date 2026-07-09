@@ -45,3 +45,16 @@ export {
   unlikeProject,
 } from "./api/projectApi";
 export { projectKeys } from "./api/queryKeys";
+// query / mutation 훅
+export {
+  useProjects,
+  useRecommendedProjects,
+  useProject,
+  useRelatedProjects,
+  useCreateProject,
+  useUpdateProject,
+  useDeleteProject,
+  useCloseProject,
+  useLikeProject,
+  useUnlikeProject,
+} from "./api/queries";

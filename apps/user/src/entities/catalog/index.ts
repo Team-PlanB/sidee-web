@@ -48,4 +48,11 @@ export {
   useCollaborationTraitCatalog,
   useCommunicationStyleCatalog,
   useCollaborationModeCatalog,
+  useAvailabilityPresetCatalog,
+  useApplicationMethodCatalog,
+  useDurationOptionCatalog,
+  useProjectFieldCatalog,
+  useProjectPlatformCatalog,
+  useProjectPositionCatalog,
+  useWorkModeCatalog,
 } from "./api/queries";

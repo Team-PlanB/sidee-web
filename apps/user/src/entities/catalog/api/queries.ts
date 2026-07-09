@@ -3,25 +3,39 @@
 import { useQuery, type UseQueryResult } from "@tanstack/react-query";
 import type {
   AffiliationCatalogItem,
+  ApplicationMethodCatalogItem,
+  AvailabilityPresetCatalogItem,
   CollaborationModeCatalogItem,
   CollaborationTraitCatalogItem,
   CommunicationStyleCatalogItem,
+  DurationOptionCatalogItem,
   IntentCatalogItem,
   JobTitleCatalogItem,
   LocationCatalogItem,
+  ProjectFieldCatalogItem,
+  ProjectPlatformCatalogItem,
+  ProjectPositionCatalogItem,
   RoleCatalogItem,
   SkillCatalogItem,
+  WorkModeCatalogItem,
 } from "../model/types";
 import {
   getAffiliationCatalog,
+  getApplicationMethodCatalog,
+  getAvailabilityPresetCatalog,
   getCollaborationModeCatalog,
   getCollaborationTraitCatalog,
   getCommunicationStyleCatalog,
+  getDurationOptionCatalog,
   getIntentCatalog,
   getJobTitleCatalog,
   getLocationCatalog,
+  getProjectFieldCatalog,
+  getProjectPlatformCatalog,
+  getProjectPositionCatalog,
   getRoleCatalog,
   getSkillCatalog,
+  getWorkModeCatalog,
 } from "./catalogApi";
 import { catalogKeys, type CatalogName } from "./queryKeys";
 
@@ -69,3 +83,30 @@ export const useCommunicationStyleCatalog = (): UseQueryResult<
 export const useCollaborationModeCatalog = (): UseQueryResult<
   CollaborationModeCatalogItem[]
 > => useCatalog("collaboration-modes", getCollaborationModeCatalog);
+
+export const useAvailabilityPresetCatalog = (): UseQueryResult<
+  AvailabilityPresetCatalogItem[]
+> => useCatalog("availability-presets", getAvailabilityPresetCatalog);
+
+export const useApplicationMethodCatalog = (): UseQueryResult<
+  ApplicationMethodCatalogItem[]
+> => useCatalog("application-methods", getApplicationMethodCatalog);
+
+export const useDurationOptionCatalog = (): UseQueryResult<
+  DurationOptionCatalogItem[]
+> => useCatalog("duration-options", getDurationOptionCatalog);
+
+export const useProjectFieldCatalog = (): UseQueryResult<
+  ProjectFieldCatalogItem[]
+> => useCatalog("project-fields", getProjectFieldCatalog);
+
+export const useProjectPlatformCatalog = (): UseQueryResult<
+  ProjectPlatformCatalogItem[]
+> => useCatalog("project-platforms", getProjectPlatformCatalog);
+
+export const useProjectPositionCatalog = (): UseQueryResult<
+  ProjectPositionCatalogItem[]
+> => useCatalog("project-positions", getProjectPositionCatalog);
+
+export const useWorkModeCatalog = (): UseQueryResult<WorkModeCatalogItem[]> =>
+  useCatalog("work-modes", getWorkModeCatalog);

@@ -11,3 +11,9 @@ export {
   markNotificationRead,
 } from "./api/notificationApi";
 export { notificationKeys } from "./api/queryKeys";
+export {
+  useNotifications,
+  useUnreadCount,
+  useMarkNotificationRead,
+  useMarkAllNotificationsRead,
+} from "./api/queries";
