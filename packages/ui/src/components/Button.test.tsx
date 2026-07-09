@@ -19,6 +19,11 @@ describe("Button (텍스트 버튼)", () => {
     expect(screen.getByRole("button")).toHaveClass("font-bold");
   });
 
+  it("포인터 커서를 사용한다", () => {
+    render(<Button>버튼</Button>);
+    expect(screen.getByRole("button")).toHaveClass("cursor-pointer");
+  });
+
   it("size s: 높이 32px, 좌우 패딩 14px, gap 4px, label-2 타이포", () => {
     render(<Button size="s">버튼</Button>);
     expect(screen.getByRole("button")).toHaveClass(
