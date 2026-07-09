@@ -1,4 +1,5 @@
 import type { SVGProps } from "react";
+import Link from "next/link";
 import { AppLogo, Tag } from "@sidee/ui";
 import type { Project } from "@/entities/project";
 
@@ -32,7 +33,13 @@ export default function ProjectCard({
   } = project;
 
   return (
-    <article className="flex h-[208px] flex-col justify-between rounded-2xl border border-gray-200 bg-white px-4 py-3">
+    <article className="relative flex h-[208px] flex-col justify-between rounded-2xl border border-gray-200 bg-white px-4 py-3">
+      {/* 카드 전체를 덮는 상세 이동 링크. 하트 버튼만 위(z-10)로 올려 예외 처리한다. */}
+      <Link
+        href={`/projects/${id}`}
+        aria-label={`${title} 상세 보기`}
+        className="absolute inset-0 rounded-2xl"
+      />
       <div className="flex flex-col gap-4">
         {/* 마감 태그 + 관심 */}
         <div className="flex items-center justify-between">
@@ -43,8 +50,12 @@ export default function ProjectCard({
             type="button"
             aria-label={liked ? "관심 해제" : "관심"}
             aria-pressed={liked}
-            onClick={() => onToggleLike?.(id)}
-            className="text-gray-800"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              onToggleLike?.(id);
+            }}
+            className="relative z-10 cursor-pointer text-gray-800"
           >
             <HeartIcon className="size-6" filled={liked} aria-hidden />
           </button>

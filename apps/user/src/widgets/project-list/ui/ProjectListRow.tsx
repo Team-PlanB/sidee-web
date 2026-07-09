@@ -1,4 +1,5 @@
 import type { SVGProps } from "react";
+import Link from "next/link";
 import { AppLogo, Tag } from "@sidee/ui";
 import type { Project } from "@/entities/project";
 
@@ -32,7 +33,13 @@ export default function ProjectListRow({
   } = project;
 
   return (
-    <li className="flex flex-col gap-4 rounded-2xl border border-gray-200 bg-white p-4">
+    <li className="relative flex flex-col gap-4 rounded-2xl border border-gray-200 bg-white p-4">
+      {/* 행 전체를 덮는 상세 이동 링크. 하트 버튼만 위(z-10)로 올려 예외 처리한다. */}
+      <Link
+        href={`/projects/${id}`}
+        aria-label={`${title} 상세 보기`}
+        className="absolute inset-0 rounded-2xl"
+      />
       {/* 상단: 제목 · 포지션 · 게시일 · 마감일 */}
       <div className="flex items-start gap-6">
         <h3 className="line-clamp-2 w-[438px] text-body-1 font-semibold text-gray-800">
@@ -58,8 +65,12 @@ export default function ProjectListRow({
             type="button"
             aria-label={liked ? "관심 해제" : "관심"}
             aria-pressed={liked}
-            onClick={() => onToggleLike?.(id)}
-            className="ml-auto text-blue-800"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              onToggleLike?.(id);
+            }}
+            className="relative z-10 ml-auto cursor-pointer text-blue-800"
           >
             <HeartIcon className="size-6" filled={liked} aria-hidden />
           </button>
