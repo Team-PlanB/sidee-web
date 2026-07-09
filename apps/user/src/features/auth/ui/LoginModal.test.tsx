@@ -27,10 +27,10 @@ describe("LoginModal", () => {
       screen.getByText("Sidee에 오신 것을 환영합니다!"),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("button", { name: "카카오 로그인" }),
+      screen.getByRole("button", { name: "Kakao 계정으로 계속하기" }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("button", { name: "Sign in with Google" }),
+      screen.getByRole("button", { name: "Google 계정으로 계속하기" }),
     ).toBeInTheDocument();
   });
 
@@ -61,13 +61,13 @@ describe("LoginModal", () => {
 
   it("카카오 로그인 클릭 시 kakao provider 로 OAuth 를 시작한다", () => {
     render(<LoginModal open onClose={jest.fn()} />);
-    fireEvent.click(screen.getByRole("button", { name: "카카오 로그인" }));
+    fireEvent.click(screen.getByRole("button", { name: "Kakao 계정으로 계속하기" }));
     expect(mockGetOAuthStartUrl).toHaveBeenCalledWith("kakao");
   });
 
   it("구글 로그인 클릭 시 google provider 로 OAuth 를 시작한다", () => {
     render(<LoginModal open onClose={jest.fn()} />);
-    fireEvent.click(screen.getByRole("button", { name: "Sign in with Google" }));
+    fireEvent.click(screen.getByRole("button", { name: "Google 계정으로 계속하기" }));
     expect(mockGetOAuthStartUrl).toHaveBeenCalledWith("google");
   });
 });
