@@ -3,6 +3,8 @@ export type { DevLoginRequest } from "./api/dto";
 export { useAuthStore, getStoredAccessToken } from "./model/authStore";
 export { installAuthBridge } from "./model/authBridge";
 export { AuthProvider } from "./ui/AuthProvider";
+export { default as LoginModal } from "./ui/LoginModal";
+export type { LoginModalProps } from "./ui/LoginModal";
 export {
   refresh,
   logout,
