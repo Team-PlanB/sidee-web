@@ -37,7 +37,8 @@ export const buttonVariants = cva(
   // base: 레이아웃 + 라운드(pill) + Bold + 포커스 링 + svg 기본 처리
   [
     "inline-flex items-center justify-center rounded-full font-bold shrink-0",
-    "transition-colors outline-none disabled:opacity-50 disabled:pointer-events-none",
+    "cursor-pointer transition-colors outline-none",
+    "disabled:opacity-50 disabled:pointer-events-none",
     "focus-visible:ring-[3px] focus-visible:ring-ring/50",
     "[&_svg]:pointer-events-none [&_svg]:shrink-0",
   ],
