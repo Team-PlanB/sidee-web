@@ -9,6 +9,14 @@ export type {
   CollaborationTraitCatalogItem,
   CommunicationStyleCatalogItem,
   CollaborationModeCatalogItem,
+  AvailabilityPresetCatalogItem,
+  ApplicationMethodCatalogItem,
+  DurationOptionCatalogItem,
+  ProjectFieldCatalogItem,
+  ProjectPlatformCatalogItem,
+  WorkModeCatalogItem,
+  ProjectSubPositionCatalogItem,
+  ProjectPositionCatalogItem,
 } from "./model/types";
 export {
   getSkillCatalog,
@@ -20,6 +28,13 @@ export {
   getCollaborationTraitCatalog,
   getCommunicationStyleCatalog,
   getCollaborationModeCatalog,
+  getAvailabilityPresetCatalog,
+  getApplicationMethodCatalog,
+  getDurationOptionCatalog,
+  getProjectFieldCatalog,
+  getProjectPlatformCatalog,
+  getProjectPositionCatalog,
+  getWorkModeCatalog,
 } from "./api/catalogApi";
 export { catalogKeys } from "./api/queryKeys";
 export type { CatalogName } from "./api/queryKeys";

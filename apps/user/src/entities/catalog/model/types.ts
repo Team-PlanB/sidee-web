@@ -1,13 +1,21 @@
 import type {
   Affiliation,
+  ApplicationMethod,
+  AvailabilityPreset,
   CollaborationMode,
   CollaborationTrait,
   CommunicationStyle,
+  DurationOption,
   Intent,
   JobTitle,
   Location,
+  ProjectField,
+  ProjectPlatform,
+  ProjectPosition,
+  ProjectSubPosition,
   Role,
   SkillCategory,
+  WorkMode,
 } from "@/shared/model";
 
 /**
@@ -38,3 +46,31 @@ export type AffiliationCatalogItem = CodeLabelItem<Affiliation>;
 export type CollaborationTraitCatalogItem = CodeLabelItem<CollaborationTrait>;
 export type CommunicationStyleCatalogItem = CodeLabelItem<CommunicationStyle>;
 export type CollaborationModeCatalogItem = CodeLabelItem<CollaborationMode>;
+
+// ── 프로필 카탈로그 (추가) ────────────────────────────────
+/** `GET /catalogs/availability-presets` — `AvailabilityPresetCatalogItemResponseDto` */
+export type AvailabilityPresetCatalogItem = CodeLabelItem<AvailabilityPreset>;
+
+// ── 프로젝트 카탈로그 (Catalogs:Project) ──────────────────
+/** `GET /catalogs/application-methods` — `ApplicationMethodCatalogItemResponseDto` */
+export type ApplicationMethodCatalogItem = CodeLabelItem<ApplicationMethod>;
+/** `GET /catalogs/duration-options` — `DurationOptionCatalogItemResponseDto` */
+export type DurationOptionCatalogItem = CodeLabelItem<DurationOption>;
+/** `GET /catalogs/project-fields` — `ProjectFieldCatalogItemResponseDto` */
+export type ProjectFieldCatalogItem = CodeLabelItem<ProjectField>;
+/** `GET /catalogs/project-platforms` — `ProjectPlatformCatalogItemResponseDto` */
+export type ProjectPlatformCatalogItem = CodeLabelItem<ProjectPlatform>;
+/** `GET /catalogs/work-modes` — `WorkModeCatalogItemResponseDto` */
+export type WorkModeCatalogItem = CodeLabelItem<WorkMode>;
+
+/** 세부 포지션 카탈로그 아이템 — `ProjectSubPositionCatalogItemResponseDto` */
+export type ProjectSubPositionCatalogItem = CodeLabelItem<ProjectSubPosition>;
+
+/**
+ * `GET /catalogs/project-positions` — `ProjectPositionCatalogItemResponseDto`.
+ * 대분류(position) + 세부 포지션(subPositions) 중첩 구조.
+ */
+export interface ProjectPositionCatalogItem
+  extends CodeLabelItem<ProjectPosition> {
+  subPositions: ProjectSubPositionCatalogItem[];
+}

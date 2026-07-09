@@ -10,7 +10,14 @@ export type CatalogName =
   | "affiliations"
   | "collaboration-traits"
   | "communication-styles"
-  | "collaboration-modes";
+  | "collaboration-modes"
+  | "availability-presets"
+  | "application-methods"
+  | "duration-options"
+  | "project-fields"
+  | "project-platforms"
+  | "project-positions"
+  | "work-modes";
 
 export const catalogKeys = {
   all: ["catalog"] as const,

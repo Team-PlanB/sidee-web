@@ -9,6 +9,15 @@ export {
   COMMUNICATION_STYLES,
   COLLABORATION_MODES,
   SKILL_CATEGORIES,
+  AVAILABILITY_PRESETS,
+  PROJECT_FIELDS,
+  PROJECT_PLATFORMS,
+  WORK_MODES,
+  DURATION_OPTIONS,
+  APPLICATION_METHODS,
+  PROJECT_POSITIONS,
+  PROJECT_SUB_POSITIONS,
+  PROJECT_STATUSES,
 } from "./enums";
 export type {
   SocialProvider,
@@ -21,6 +30,15 @@ export type {
   CommunicationStyle,
   CollaborationMode,
   SkillCategory,
+  AvailabilityPreset,
+  ProjectField,
+  ProjectPlatform,
+  WorkMode,
+  DurationOption,
+  ApplicationMethod,
+  ProjectPosition,
+  ProjectSubPosition,
+  ProjectStatus,
 } from "./enums";
 export { WEEKDAYS } from "./availability";
 export type {
