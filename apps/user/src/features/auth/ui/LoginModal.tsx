@@ -75,8 +75,10 @@ export default function LoginModal({ open, onClose }: LoginModalProps) {
           >
             Sidee에 오신 것을 환영합니다!
           </h2>
-          <p className="max-w-[244px] text-base leading-[1.5] tracking-[0.0057em] text-gray-800">
-            당신의 아이디어가 멈추지 않도록, 사이디에서 팀원과 함께 시작해 보세요.
+          <p className="text-base leading-[1.5] tracking-[0.0057em] text-gray-800">
+            당신의 아이디어가 멈추지 않도록,
+            <br />
+            사이디에서 팀원과 함께 시작해 보세요.
           </p>
         </div>
 
@@ -87,7 +89,7 @@ export default function LoginModal({ open, onClose }: LoginModalProps) {
             className="flex h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-[99px] bg-[#FEE500] text-sm font-medium tracking-[0.0145em] text-black"
           >
             <KakaoIcon className="size-[18px]" aria-hidden />
-            카카오 로그인
+            Kakao 계정으로 계속하기
           </button>
 
           <button
@@ -96,7 +98,7 @@ export default function LoginModal({ open, onClose }: LoginModalProps) {
             className="flex h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-[40px] border border-[#747775] bg-white text-sm font-medium tracking-[0.0145em] text-black"
           >
             <GoogleIcon className="size-[18px]" aria-hidden />
-            Sign in with Google
+            Google 계정으로 계속하기
           </button>
         </div>
       </div>
