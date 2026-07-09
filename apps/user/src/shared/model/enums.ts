@@ -89,3 +89,112 @@ export const SKILL_CATEGORIES = [
   "other",
 ] as const;
 export type SkillCategory = (typeof SKILL_CATEGORIES)[number];
+
+/** 활동 시간대 preset (`GET /catalogs/availability-presets`) */
+export const AVAILABILITY_PRESETS = [
+  "WEEKDAY_DAY",
+  "WEEKDAY_NIGHT",
+  "WEEKEND_DAY",
+  "WEEKEND_NIGHT",
+] as const;
+export type AvailabilityPreset = (typeof AVAILABILITY_PRESETS)[number];
+
+/** 프로젝트 분야 (14개) */
+export const PROJECT_FIELDS = [
+  "ECOMMERCE",
+  "COMMUNITY",
+  "EDUCATION_HR",
+  "BEAUTY_FASHION",
+  "DATING_MARRIAGE",
+  "FINTECH",
+  "TRAVEL",
+  "O2O",
+  "NEWS_INFO",
+  "ENTERTAINMENT",
+  "SHARING_SERVICE",
+  "HEALTH",
+  "HOME_INTERIOR",
+  "MANUFACTURING_LOGISTICS",
+] as const;
+export type ProjectField = (typeof PROJECT_FIELDS)[number];
+
+/** 출시 플랫폼 (6개) */
+export const PROJECT_PLATFORMS = [
+  "RESPONSIVE_WEB",
+  "IOS",
+  "ANDROID",
+  "PC_PROGRAM",
+  "INSTALLABLE_OR_SAAS",
+  "UNDECIDED",
+] as const;
+export type ProjectPlatform = (typeof PROJECT_PLATFORMS)[number];
+
+/** 진행 방식 (3개). 값은 협업 모드와 동일하나 프로젝트 도메인용으로 분리한다. */
+export const WORK_MODES = ["ONLINE", "OFFLINE", "HYBRID"] as const;
+export type WorkMode = (typeof WORK_MODES)[number];
+
+/** 진행 기간 옵션 (7개) */
+export const DURATION_OPTIONS = [
+  "ONE_MONTH",
+  "TWO_MONTHS",
+  "THREE_MONTHS",
+  "FOUR_MONTHS",
+  "FIVE_MONTHS",
+  "SIX_MONTHS_PLUS",
+  "UNDECIDED",
+] as const;
+export type DurationOption = (typeof DURATION_OPTIONS)[number];
+
+/** 지원 방법 (2개) */
+export const APPLICATION_METHODS = ["OPEN_CHAT", "GOOGLE_FORM"] as const;
+export type ApplicationMethod = (typeof APPLICATION_METHODS)[number];
+
+/** 모집 포지션 대분류 (5개) */
+export const PROJECT_POSITIONS = [
+  "PLANNING",
+  "DESIGN",
+  "FRONTEND",
+  "BACKEND",
+  "ETC",
+] as const;
+export type ProjectPosition = (typeof PROJECT_POSITIONS)[number];
+
+/** 모집 세부 포지션 (31개) */
+export const PROJECT_SUB_POSITIONS = [
+  "PLANNING_SERVICE",
+  "PLANNING_UX_UI",
+  "PLANNING_CONTENT",
+  "PLANNING_PM",
+  "PLANNING_PO",
+  "PLANNING_PRODUCT",
+  "PLANNING_ETC",
+  "DESIGN_UI_UX",
+  "DESIGN_WEB",
+  "DESIGN_BX_BRAND",
+  "DESIGN_3D",
+  "DESIGN_GRAPHIC",
+  "DESIGN_PRODUCT",
+  "DESIGN_ETC",
+  "FRONTEND_ANDROID",
+  "FRONTEND_IOS",
+  "FRONTEND_WEB",
+  "FRONTEND_PUBLISHER",
+  "FRONTEND_CROSS_PLATFORM",
+  "FRONTEND_ETC",
+  "BACKEND_WEB_SERVER",
+  "BACKEND_DATA_DBA",
+  "BACKEND_PROMPT_ENGINEER",
+  "BACKEND_NETWORK_CLOUD",
+  "BACKEND_ETC",
+  "ETC_MARKETING_BRAND",
+  "ETC_MARKETING_GROWTH",
+  "ETC_MARKETING_CONTENT",
+  "ETC_MARKETING_PERFORMANCE",
+  "ETC_MARKETING_VIRAL",
+  "ETC_MARKETING_ETC",
+] as const;
+export type ProjectSubPosition = (typeof PROJECT_SUB_POSITIONS)[number];
+
+/** 프로젝트 상태 */
+export const PROJECT_STATUSES = ["DRAFT", "PUBLISHED", "CLOSED"] as const;
+export type ProjectStatus = (typeof PROJECT_STATUSES)[number];
