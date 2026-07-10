@@ -1,9 +1,9 @@
 import type {
+  AvailabilityPreset,
   CollaborationTrait,
   CommunicationStyle,
   Intent,
   Role,
-  WeeklyAvailability,
 } from "@/shared/model";
 
 /** 온보딩 step 1 — `UpdateStep1RequestDto` (`PATCH /onboarding/step/1`) */
@@ -29,10 +29,10 @@ export interface UpdateStep3Request {
   /** 소통 스타일 (최대 2개) */
   communicationStyles?: CommunicationStyle[];
   /**
-   * 활동 가능한 주간 시간표 (요일 → 0–23 시 배열).
-   * 온보딩 입력값은 ONLINE 모드로 저장된다.
+   * 활동 가능한 시간대 preset (단일 선택, skip 가능).
+   * 서버가 저장 시 ONLINE 모드의 주간 시간표로 확장한다.
    */
-  availability?: WeeklyAvailability;
+  availability?: AvailabilityPreset;
 }
 
 /** `GET /onboarding/nickname/availability` 응답 */

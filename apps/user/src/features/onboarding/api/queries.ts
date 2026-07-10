@@ -38,6 +38,20 @@ export function useNicknameAvailability(
   });
 }
 
+/**
+ * 닉네임 사용 가능 여부를 **명령형(on-demand)** 으로 확인한다.
+ * CTA 클릭 시 1회 호출해 available 응답으로 다음 진행/에러를 분기할 때 쓴다.
+ */
+export function useCheckNicknameAvailability(): UseMutationResult<
+  NicknameAvailabilityResponse,
+  Error,
+  string
+> {
+  return useMutation({
+    mutationFn: (nickname: string) => checkNicknameAvailability(nickname),
+  });
+}
+
 /** 온보딩 단계 성공 시 me 캐시를 갱신하는 mutation 팩토리 */
 function useOnboardingStep<TBody>(
   mutationFn: (body: TBody) => Promise<OnboardingState>,
