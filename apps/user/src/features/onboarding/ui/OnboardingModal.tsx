@@ -2,6 +2,8 @@
 
 import { useState, type SVGProps } from "react";
 import OnboardingStep1 from "./OnboardingStep1";
+import OnboardingStep2 from "./OnboardingStep2";
+import OnboardingStep3 from "./OnboardingStep3";
 
 export interface OnboardingModalProps {
   open: boolean;
@@ -35,6 +37,8 @@ export default function OnboardingModal({
     setStep((s) => s + 1);
   };
 
+  const goPrev = () => setStep((s) => Math.max(1, s - 1));
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/20 px-4">
       <div
@@ -54,23 +58,9 @@ export default function OnboardingModal({
           </button>
         </div>
 
-        {step === 1 ? (
-          <OnboardingStep1 onNext={goNext} />
-        ) : (
-          // TODO(디자인): step2·3 디자인 확정 후 구현. 임시로 건너뛰기 제공.
-          <div className="flex flex-col items-center gap-4 px-10 py-8 text-center">
-            <p className="text-body-1 text-gray-800">
-              다음 단계({step}/{TOTAL_STEPS})는 곧 제공될 예정이에요.
-            </p>
-            <button
-              type="button"
-              onClick={() => onCompleted?.()}
-              className="cursor-pointer text-label-1 font-semibold text-blue-600 underline"
-            >
-              건너뛰고 시작하기
-            </button>
-          </div>
-        )}
+        {step === 1 && <OnboardingStep1 onNext={goNext} />}
+        {step === 2 && <OnboardingStep2 onNext={goNext} onPrev={goPrev} />}
+        {step === 3 && <OnboardingStep3 onNext={goNext} onPrev={goPrev} />}
       </div>
     </div>
   );
