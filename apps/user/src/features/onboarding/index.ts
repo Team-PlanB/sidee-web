@@ -14,6 +14,7 @@ export {
 export { onboardingKeys } from "./api/queryKeys";
 export {
   useNicknameAvailability,
+  useCheckNicknameAvailability,
   useUpdateOnboardingStep1,
   useUpdateOnboardingStep2,
   useUpdateOnboardingStep3,

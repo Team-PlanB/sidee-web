@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Button, TextField } from "@sidee/ui";
 import type { Intent } from "@/shared/model";
 import {
-  useNicknameAvailability,
+  useCheckNicknameAvailability,
   useUpdateOnboardingStep1,
 } from "../api/queries";
 
@@ -16,7 +16,7 @@ const INTENT_OPTIONS: { value: Intent; label: string }[] = [
 
 const NICKNAME_MIN = 2;
 const NICKNAME_MAX = 15;
-const NICKNAME_DEBOUNCE_MS = 300;
+const NICKNAME_HINT = "2~15자, 띄어쓰기 없이 입력해 주세요.";
 
 export interface OnboardingStep1Props {
   /** step1 저장 성공 시 다음 단계로 */
@@ -25,47 +25,58 @@ export interface OnboardingStep1Props {
 
 /**
  * 온보딩 Step1 — 경험(intent) 선택 + 닉네임 입력.
- * 닉네임은 디바운스 후 중복확인(useNicknameAvailability)하고,
- * intent 선택 + 유효/사용가능 닉네임일 때만 다음으로 진행한다.
+ *
+ * - 다음 버튼 활성: intent 선택 + 닉네임 클라이언트 검증 통과(2~15자, 띄어쓰기 없음).
+ * - 클릭 시: 서버 `nickname/availability` 를 먼저 호출 → available 이면 step1 저장 후 다음,
+ *   아니면 중복 에러를 표시한다(길이/공백 에러는 클라, 중복 에러는 서버).
  */
 export default function OnboardingStep1({ onNext }: OnboardingStep1Props) {
   const [intent, setIntent] = useState<Intent | null>(null);
   const [nickname, setNickname] = useState("");
-  const [debounced, setDebounced] = useState("");
+  const [serverError, setServerError] = useState<string | null>(null);
 
-  useEffect(() => {
-    const timer = setTimeout(() => setDebounced(nickname), NICKNAME_DEBOUNCE_MS);
-    return () => clearTimeout(timer);
-  }, [nickname]);
+  const checkAvailability = useCheckNicknameAvailability();
+  const { mutate: submitStep1, isPending: isSubmitting } =
+    useUpdateOnboardingStep1();
 
+  // ── 클라이언트 검증 ──────────────────────────────────
+  const hasWhitespace = /\s/.test(nickname);
   const lengthValid =
     nickname.length >= NICKNAME_MIN && nickname.length <= NICKNAME_MAX;
-  const debouncedValid =
-    debounced.length >= NICKNAME_MIN && debounced.length <= NICKNAME_MAX;
+  const clientValid = lengthValid && !hasWhitespace;
 
-  const availability = useNicknameAvailability(debounced, {
-    enabled: debouncedValid,
-  });
-  const available = availability.data?.available;
+  const clientError =
+    nickname.length === 0
+      ? null
+      : hasWhitespace
+        ? "띄어쓰기는 사용할 수 없어요."
+        : !lengthValid
+          ? "2~15자로 입력해 주세요."
+          : null;
 
-  const { mutate: submitStep1, isPending } = useUpdateOnboardingStep1();
+  const busy = checkAvailability.isPending || isSubmitting;
+  const canSubmit = intent != null && clientValid && !busy;
 
-  const invalid = lengthValid && available === false;
-  const helperText =
-    !lengthValid
-      ? "2~15자로 입력해 주세요."
-      : available === false
-        ? "이미 사용 중인 닉네임이에요."
-        : available === true
-          ? "사용할 수 있는 닉네임이에요."
-          : "닉네임 중복을 확인하고 있어요.";
+  const invalid = clientError != null || serverError != null;
+  const helperText = clientError ?? serverError ?? NICKNAME_HINT;
 
-  const canSubmit =
-    intent != null && lengthValid && available === true && !isPending;
+  const handleNicknameChange = (value: string) => {
+    setNickname(value);
+    setServerError(null); // 입력 변경 시 서버 에러 초기화
+  };
 
   const handleSubmit = () => {
     if (intent == null || !canSubmit) return;
-    submitStep1({ intent, nickname }, { onSuccess: onNext });
+    setServerError(null);
+    checkAvailability.mutate(nickname, {
+      onSuccess: ({ available }) => {
+        if (!available) {
+          setServerError("이미 사용 중인 닉네임이에요.");
+          return;
+        }
+        submitStep1({ intent, nickname }, { onSuccess: onNext });
+      },
+    });
   };
 
   return (
@@ -114,7 +125,7 @@ export default function OnboardingStep1({ onNext }: OnboardingStep1Props) {
         placeholder="닉네임을 입력해 주세요."
         value={nickname}
         maxLength={NICKNAME_MAX}
-        onChange={(e) => setNickname(e.target.value)}
+        onChange={(e) => handleNicknameChange(e.target.value)}
         invalid={invalid}
         helperText={helperText}
       />
@@ -127,7 +138,7 @@ export default function OnboardingStep1({ onNext }: OnboardingStep1Props) {
         disabled={!canSubmit}
         onClick={handleSubmit}
       >
-        다음
+        다음으로
       </Button>
     </div>
   );
