@@ -18,3 +18,5 @@ export {
   useUpdateOnboardingStep2,
   useUpdateOnboardingStep3,
 } from "./api/queries";
+export { default as OnboardingModal } from "./ui/OnboardingModal";
+export type { OnboardingModalProps } from "./ui/OnboardingModal";
